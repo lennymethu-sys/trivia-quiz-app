@@ -1,5 +1,9 @@
-function ScoreTracker() {
-  return <div>ScoreTracker — Member 3 working on this</div>
+function ScoreTracker({ score, total }) {
+  return (
+    <div>
+      <p>Score: {score} / {total}</p>
+    </div>
+  );
 }
 
-export default ScoreTracker
+export default ScoreTracker;
