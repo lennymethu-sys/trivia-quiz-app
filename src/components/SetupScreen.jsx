@@ -45,7 +45,7 @@ function SetupScreen({ setQuestions, setGamePhase }) {
           <option value="hard">Hard</option>
         </select>
 
-        <button type="submit" disabled={loading}>
+        <button className="button-primary" type="submit" disabled={loading}>
           {loading ? "Loading..." : "Start Quiz"}
         </button>
 
