@@ -1,5 +1,13 @@
-function QuestionCard() {
-  return <div>QuestionCard — Member 2 working on this</div>
+
+
+function QuestionCard({question, category}) {
+  return (
+    <div className="question-card">
+      <span className="qustion-badge">{category}</span>
+      <p className="question-text">{question}</p>
+    </div>
+  )
 }
+  
 
 export default QuestionCard
