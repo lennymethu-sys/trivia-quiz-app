@@ -9,7 +9,7 @@ function App() {
   const [questions, setQuestions] = useState([])
   const [score, setScore] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [gamePhase, setGamePhase] = useState("setup")
+  const [, setGamePhase] = useState("setup")
 
   function handleAnswer(isCorrect) {
     if (isCorrect) setScore(score + 1)
