@@ -1,4 +1,5 @@
 import React from 'react';
+import ProgressBar from './ProgressBar';
 
 function ScoreBoard (props) {
 
@@ -16,6 +17,7 @@ function ScoreBoard (props) {
       <div>
         {percentageScore}% You scored {score} out of {totalQuestions}!
       </div>
+      <ProgressBar percentage={percentageScore} />
       <div>
       <button onClick={onRestart}>Restart Quiz</button>
       </div>
