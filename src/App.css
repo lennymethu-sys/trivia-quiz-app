@@ -1,38 +1,127 @@
-.App {
+:root {
+  --primary-color: #61dafb;
+  --secondary-color: #282c34;
+  --background-color: #f0f2f5; /* kept your lighter setup screen bg */
+  --text-color: white;
+  --accent-color: #61dafb;
+
+  --text-main: #333333;
+  --text-light: #666666;
+  --error-red: #d9534f;
+
+  --font-main: 'Inter', system-ui, sans-serif;
+
+  /* Spacing and layout */
+  --radius: 12px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: var(--font-main);
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Setup Screen */
+.setup-screen {
+  background: white;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 400px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Reusable Card */
+.card {
+  background-color: var(--secondary-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Typography */
+h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: var(--text-main);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: var(--text-light);
 }
 
-.App-link {
-  color: #61dafb;
+/* Inputs */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Buttons (base) */
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+/* Primary button */
+.button-primary {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.button-primary:hover {
+  background-color: var(--accent-color);
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+/* Option buttons */
+.button.option {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.button.option:hover {
+  background-color: var(--accent-color);
+}
+
+/* Disabled state */
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
 }
