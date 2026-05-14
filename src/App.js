@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import TimerDisplay from './components/TimerDisplay'; 
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header><TimerDisplay seconds={15} onTimeUp={() => console.log("Time's up!")} />
+
     </div>
   );
 }
