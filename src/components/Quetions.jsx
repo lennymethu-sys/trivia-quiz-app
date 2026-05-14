@@ -1,32 +1,28 @@
 import { useState} from "react"
-import ProgressBar from "./ProgressBar";
-import QuestionCard from "./QuestionCard";
-import AnswerOption from "./AnswerOption";
-import "./Quiz.css"; // 
 
-const questions = [{ 
+const Questions = [{ 
     text:"which planent has the most moons",
     category:"Science",
-    answers:["Saturn", "Jupiter", "Uranus", "Neptune"],
-    correctIndex:0,
+    answers:["Jupiter, Saturn, Uranus, Neptune"],
+    correctIndex:1,
 },
 {
     text:"What is the capital of France?",
     category:"Geography",
     answers:["London", "Paris", "Berlin", "Madrid"],
-    correctIndex:1
+    correctIndex:2
 },
 {
     text:"What is 12 * 12?",
     category:"Math",
     answers:["144", "132", "156", "168"],
-    correctIndex:0
+    correctIndex:1
 },
 {
     text:"what is the largest ocean on Earth?",
     category:"Geography",
     answers:["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
-    correctIndex:0
+    correctIndex:3
 },
 {
     text:"how many sides does a hexagon have?",
@@ -38,13 +34,13 @@ const questions = [{
     text:"What gas do plants absorb from the air?",
     category:"Science",
     answers:["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
-    correctIndex:1
+    correctIndex:2
 },
 {
     text:"Which country is the largest in the world by area?",
     category:"Geography",
     answers:["Russia", "Canada", "United States", "China"],
-    correctIndex:0
+    correctIndex:3
 },
 {
     text:"How many hours are in 3 days?",
@@ -56,25 +52,25 @@ const questions = [{
     text:"What is the fastest land animal?",
     category:"Science",
     answers:["Cheetah", "Lion", "Elephant", "Gazelle"],
-    correctIndex:0
+    correctIndex:1
 },
 {
     text:"What is the capital of Japan?",
     category:"Geography",
     answers:["Tokyo", "Osaka", "Kyoto", "Hokkaido"],
-    correctIndex:0
+    correctIndex:3
 },
 ]
 
 
   
 
-function Questions() { 
-  const [currentIndex, setCurrentIndex] = useState(0);   
-  const [selected, setSelected]         = useState(null);
-  const [submitted, setSubmitted]       = useState(false);
-  const [score, setScore]               = useState(0);    
-  const [finished, setFinished]         = useState(false);
+function Questions() { function Quiz() {
+  const [currentIndex, setCurrentIndex] = useState(0);   // which question are we on
+  const [selected, setSelected]         = useState(null); // which answer did they pick
+  const [submitted, setSubmitted]       = useState(false);// did they check their answer
+  const [score, setScore]               = useState(0);    // how many correct so far
+  const [finished, setFinished]         = useState(false);// did they finish all 10
 
   const question = questions[currentIndex];
 
@@ -161,5 +157,8 @@ function Questions() {
     </div>
   );
 }
-export default Questions;
 
+export default Quiz;
+
+
+}
