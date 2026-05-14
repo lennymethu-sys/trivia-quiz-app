@@ -2,11 +2,12 @@ import { useState} from "react"
 import ProgressBar from "./ProgressBar";
 import QuestionCard from "./QuestionCard";
 import AnswerOption from "./AnswerOption";
+import "./Quiz.css"; // 
 
-const Questions = [{ 
+const questions = [{ 
     text:"which planent has the most moons",
     category:"Science",
-    answers:["Jupiter, Saturn, Uranus, Neptune"],
+    answers:["Jupiter", "Saturn", "Uranus", "Neptune"],
     correctIndex:1,
 },
 {
@@ -68,7 +69,7 @@ const Questions = [{
 
   
 
-function Questions() { function Quiz() {
+function Questions() { 
   const [currentIndex, setCurrentIndex] = useState(0);   // which question are we on
   const [selected, setSelected]         = useState(null); // which answer did they pick
   const [submitted, setSubmitted]       = useState(false);// did they check their answer
@@ -160,8 +161,5 @@ function Questions() { function Quiz() {
     </div>
   );
 }
-
 export default Questions;
 
-
-}

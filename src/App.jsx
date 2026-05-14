@@ -1,10 +1,10 @@
 import './App.css';
-import Quiz from "./components/Quiz";
+import Questions from "./components/Questions";
 
 function App() {
   return (
     <div>
-      <Quiz />
+      <Questions/>
     </div>
   );
 }
