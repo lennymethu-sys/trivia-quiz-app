@@ -12,9 +12,7 @@ function ProgressBar({current, total}) {
         <div className="progress-fill" style={{width: `${percentage}%`}}></div>
       </div>
     </div>
-  );
-function ProgressBar(props) {
-  return <div>ProgressBar — Member 2 working on this</div>
+  )
 }
-}
+
 export default ProgressBar;
