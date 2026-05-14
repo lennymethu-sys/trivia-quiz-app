@@ -1,4 +1,7 @@
 import { useState} from "react"
+import ProgressBar from "./ProgressBar";
+import QuestionCard from "./QuestionCard";
+import AnswerOption from "./AnswerOption";
 
 const Questions = [{ 
     text:"which planent has the most moons",
@@ -158,7 +161,7 @@ function Questions() { function Quiz() {
   );
 }
 
-export default Quiz;
+export default Questions;
 
 
 }
