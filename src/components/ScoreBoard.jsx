@@ -25,5 +25,4 @@ function ScoreBoard (props) {
     
   );
 }
-
 export default ScoreBoard

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import SetupScreen from "./components/SetupScreen"
 import QuestionCard from "./components/QuestionCard"
 import ScoreBoard from "./components/ScoreBoard"
+import AnswerReview from "./components/AnswerReview"
 import "./App.css"
 
 function App() {
