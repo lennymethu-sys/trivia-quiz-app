@@ -1,7 +1,10 @@
 function AnswerOption({ answer, selected, correct, onSelect, submitted }) {
 
   function getColor() {
-    if (!submitted) return selected === answer ? "selected" : ""
+    if (!submitted) {
+      if (selected === answer) return "selected"
+      return ""
+    }
     if (answer === correct) return "correct"
     if (answer === selected) return "wrong"
     return ""
