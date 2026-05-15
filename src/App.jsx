@@ -12,8 +12,8 @@ function App() {
   const [gamePhase, setGamePhase] = useState("setup")
 
   function handleAnswer(isCorrect) {
-    if (isCorrect) setScore(prev => prev + 1)
-    setCurrentIndex(prev => prev + 1)
+    if (isCorrect) setScore(currentIndex => currentIndex + 1)
+    setCurrentIndex(currentIndexnt => currentIndex + 1)
   }
 
   function handleRestart() {
