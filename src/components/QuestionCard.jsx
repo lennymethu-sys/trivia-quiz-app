@@ -1,5 +1,8 @@
 import { useState } from "react";
 import useTimer from "../hooks/useTimer";
+import ScoreTracker from "./ScoreTracker";
+import TimerDisplay from "./TimerDisplay";
+import 
 
 // Dummy question for testing — remove when Member 1 passes real props
 const dummyQuestion = {

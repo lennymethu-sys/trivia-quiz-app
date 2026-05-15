@@ -1,5 +1,7 @@
+import useTimer from "../hooks/useTimer";
+
 function TimerDisplay({ seconds, onTimeUp }) {
-  const { timeLeft } = useTimer(seconds, onTimeUp); // ← destructure now
+  const { timeLeft } = useTimer(seconds, onTimeUp);
 
   return (
     <div>
@@ -7,4 +9,5 @@ function TimerDisplay({ seconds, onTimeUp }) {
     </div>
   );
 }
+
 export default TimerDisplay;
