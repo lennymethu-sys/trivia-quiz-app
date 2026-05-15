@@ -44,7 +44,7 @@ function QuestionCard({ questions, currentIndex, onAnswer, score }) {
     <div className="question-screen">
       <ScoreTracker score={score} total={questions.length} />
       <TimerDisplay
-        seconds={15}
+        seconds={75}
         onTimeUp={handleNext}
         currentIndex={currentIndex}
       />
