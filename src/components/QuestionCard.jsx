@@ -2,16 +2,6 @@ import { useState } from "react";
 import useTimer from "../hooks/useTimer";
 import ScoreTracker from "./ScoreTracker";
 import TimerDisplay from "./TimerDisplay";
-import 
-
-// Dummy question for testing — remove when Member 1 passes real props
-const dummyQuestion = {
-  question: "What is the capital of France?",
-  correct_answer: "Paris",
-  incorrect_answers: ["London", "Berlin", "Madrid"],
-  category: "Geography",
-  difficulty: "easy",
-};
 
 function QuestionCard({ question = dummyQuestion, questionNumber = 1, total = 10, onAnswer }) {
   const [selected, setSelected] = useState(null);
