@@ -7,3 +7,4 @@ function TimerDisplay({ seconds, onTimeUp }) {
     </div>
   );
 }
+export default TimerDisplay;
