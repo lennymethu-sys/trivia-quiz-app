@@ -1,14 +1,19 @@
-function AnswerOption({letter, text, status,onClick}) {
+function AnswerOption({ answer, selected, correct, onSelect, submitted }) {
+
+  function getColor() {
+    if (!submitted) return selected === answer ? "selected" : ""
+    if (answer === correct) return "correct"
+    if (answer === selected) return "wrong"
+    return ""
+  }
+
   return (
-    <div>
-      <button
-       className={`answer-option ${status}`}
-       onClick={onClick}>
-        <span className="answer-letter">{letter}</span>
-        <span className="answer-text">{text}</span>
-      </button>
-    </div>
-  
+    <button
+      className={`answer-option ${getColor()}`}
+      onClick={() => onSelect(answer)}
+      disabled={submitted}
+      dangerouslySetInnerHTML={{ __html: answer }}
+    />
   )
 }
 

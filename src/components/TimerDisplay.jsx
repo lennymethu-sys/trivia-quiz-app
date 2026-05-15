@@ -10,5 +10,3 @@ function TimerDisplay({ seconds, onTimeUp }) {
 }
 
 export default TimerDisplay
-
-

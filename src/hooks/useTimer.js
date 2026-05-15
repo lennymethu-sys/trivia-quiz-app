@@ -1,27 +1,24 @@
-// useTimer — Member 3 working on this
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react"
 
 function useTimer(seconds, onTimeUp) {
-  const [timeLeft, setTimeLeft] = useState(seconds);
+  const [timeLeft, setTimeLeft] = useState(seconds)
 
-  const reset = useCallback(() => {
-    setTimeLeft(seconds);
-  }, [seconds]);
+  useEffect(() => {
+    setTimeLeft(seconds)
+  }, [seconds])
 
   useEffect(() => {
     if (timeLeft === 0) {
-      onTimeUp();
-      return;
+      if (onTimeUp) onTimeUp()
+      return
     }
-
     const interval = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
+      setTimeLeft((prev) => prev - 1)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [timeLeft])
 
-    return () => clearInterval(interval);
-  }, [timeLeft]);
-
-  return { timeLeft, reset };
+  return { timeLeft }
 }
 
-export default useTimer;
+export default useTimer
