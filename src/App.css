@@ -125,3 +125,142 @@ button:disabled {
   background-color: #aaa;
   cursor: not-allowed;
 }
+
+/* Question Screen */
+.question-screen {
+  background: rgb(248, 248, 248);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 500px;
+  text-align: center;
+}
+
+.question-screen h2 {
+  font-size: 20px;
+  margin: 20px 0;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* Answers */
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.answer-option {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s;
+}
+
+.answer-option:hover:not(:disabled) {
+  background: #f0f2f5;
+  border-color: #61dafb;
+}
+
+.answer-option.selected {
+  border-color: #61dafb;
+  background: #e8f0fe;
+}
+
+.answer-option.correct {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.answer-option.wrong {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-bottom: 20px;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #61dafb;
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+
+/* Timer */
+.timer {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--error-red);
+  margin-bottom: 10px;
+}
+
+/* Score Tracker */
+.score-tracker {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+/* Results Screen */
+.scoreboard {
+  background: rgb(248, 248, 248);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 500px;
+  text-align: center;
+}
+
+.score-display {
+  margin: 20px 0;
+}
+
+.score-display h3 {
+  font-size: 24px;
+  color: var(--text-main);
+}
+
+/* Answer Review */
+.answer-review {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.review-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: white;
+}
+
+.correct-answer {
+  color: #28a745;
+  margin-top: 8px;
+  font-weight: bold;
+}
