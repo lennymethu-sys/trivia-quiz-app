@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
 import SetupScreen from "./components/SetupScreen"
 import QuestionCard from "./components/QuestionCard"
 import ScoreBoard from "./components/ScoreBoard"
+import AnswerReview from "./components/AnswerReview"
 import "./App.css"
 
 function App() {
@@ -46,6 +47,16 @@ function App() {
             />
           }
         />
+        <Route
+  path="/review"
+  element={
+    <AnswerReview
+      questions={questions}
+      score={score}
+      onRestart={handleRestart}
+    />
+  }
+/>
         <Route
           path="/results"
           element={
