@@ -25,14 +25,21 @@ function QuestionCard({ questions, currentIndex, onAnswer, score }) {
 
   function handleSubmit() {
     if (selected === null) return
+
     const isCorrect = selected === current.correct_answer
-    onAnswer(isCorrect)
     setSubmitted(true)
+
+    // wait 1 second then move
+    setTimeout(() => {
+      onAnswer(isCorrect)
+      handleNext()
+    }, 1000)
   }
 
   function handleNext() {
     setSelected(null)
     setSubmitted(false)
+
     if (currentIndex + 1 >= questions.length) {
       navigate("/results")
     }
@@ -43,16 +50,19 @@ function QuestionCard({ questions, currentIndex, onAnswer, score }) {
   return (
     <div className="question-screen">
       <ScoreTracker score={score} total={questions.length} />
+
       <TimerDisplay
-        seconds={75}
+        seconds={60}   // 👈 your timer now 60 seconds
         onTimeUp={handleNext}
-        currentIndex={currentIndex}
       />
+
       <ProgressBar
         current={currentIndex + 1}
         total={questions.length}
       />
+
       <h2 dangerouslySetInnerHTML={{ __html: current.question }} />
+
       <div className="answers">
         {allAnswers.map((answer, index) => (
           <AnswerOption
@@ -65,26 +75,9 @@ function QuestionCard({ questions, currentIndex, onAnswer, score }) {
           />
         ))}
       </div>
+
       {selected !== null && !submitted && (
         <button onClick={handleSubmit}>Check Answer</button>
-      )}
-      {submitted && (
-        <div>
-          <p style={{ 
-            color: selected === current.correct_answer ? "green" : "red",
-            fontSize: "18px",
-            margin: "10px 0"
-          }}>
-            {selected === current.correct_answer 
-              ? "✅ Correct!" 
-              : `❌ Wrong! Correct answer: ${current.correct_answer}`}
-          </p>
-          <button onClick={handleNext}>
-            {currentIndex + 1 < questions.length
-              ? "Next Question"
-              : "See Results"}
-          </button>
-        </div>
       )}
     </div>
   )

@@ -264,3 +264,33 @@ button:disabled {
   margin-top: 8px;
   font-weight: bold;
 }
+
+.answer {
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.answer:hover {
+  background-color: #f1f1f1;
+}
+
+.answer.selected {
+  background-color: #ddd;
+}
+
+.answer.correct {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.answer.wrong {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}

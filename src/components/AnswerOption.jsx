@@ -1,20 +1,20 @@
 function AnswerOption({ answer, selected, correct, onSelect, submitted }) {
+  const isSelected = selected === answer
+  const isCorrect = correct === answer
 
-  function getColor() {
-    if (!submitted) {
-      if (selected === answer) return "selected"
-      return ""
-    }
-    if (answer === correct) return "correct"
-    if (answer === selected) return "wrong"
-    return ""
+  let className = "answer"
+
+  if (submitted) {
+    if (isCorrect) className += " correct"
+    else if (isSelected) className += " wrong"
+  } else if (isSelected) {
+    className += " selected"
   }
 
   return (
     <button
-      className={`answer-option ${getColor()}`}
+      className={className}
       onClick={() => onSelect(answer)}
-      disabled={submitted}
       dangerouslySetInnerHTML={{ __html: answer }}
     />
   )
