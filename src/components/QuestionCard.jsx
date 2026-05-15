@@ -49,6 +49,14 @@ function QuestionCard({ questions, currentIndex, onAnswer, score }) {
 
   return (
     <div className="question-screen">
+
+      <button 
+        className="back-btn"
+        onClick={() => navigate("/")}
+      >
+    
+      </button>
+    <div className="question-screen">
       <ScoreTracker score={score} total={questions.length} />
 
       <TimerDisplay
@@ -74,6 +82,7 @@ function QuestionCard({ questions, currentIndex, onAnswer, score }) {
             submitted={submitted}
           />
         ))}
+      </div>
       </div>
 
       {selected !== null && !submitted && (
