@@ -1,28 +1,31 @@
-import React from 'react';
-import ProgressBar from './ProgressBar';
+import { useNavigate } from "react-router-dom"
+import ProgressBar from "./ProgressBar"
 
-function ScoreBoard (props) {
+function ScoreBoard({ score, questions, onRestart }) {
+  const navigate = useNavigate()
+  const totalQuestions = questions.length
+  const percentageScore = Math.round((score / totalQuestions) * 100)
 
-  
-  const { score, questions, onRestart } = props;
-
-  const totalQuestions = questions.length;;
-
-  //Calculate percentage score without decimals and prevent division by 0
-  const percentageScore = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
+  function handleRestart() {
+    onRestart()
+    navigate("/")
+  }
 
   return (
-    <div>
+    <div className="scoreboard">
       <h2>Quiz Completed!</h2>
-      <div>
-        {percentageScore}% You scored {score} out of {totalQuestions}!
+      <div className="score-display">
+        <h3>You scored {score} out of {totalQuestions}!</h3>
+        <p>{percentageScore}%</p>
       </div>
-      <ProgressBar percentage={percentageScore} />
-      <div>
-      <button onClick={onRestart}>Restart Quiz</button>
-      </div>
+      <ProgressBar current={score} total={totalQuestions} />
+      {percentageScore === 100 && <p>🏆 Perfect score! Amazing!</p>}
+      {percentageScore >= 70 && percentageScore < 100 && <p>🎉 Great job!</p>}
+      {percentageScore >= 40 && percentageScore < 70 && <p>👍 Good effort!</p>}
+      {percentageScore < 40 && <p>💪 Keep practicing!</p>}
+      <button onClick={handleRestart}>Restart Quiz</button>
     </div>
-    
-  );
+  )
 }
+
 export default ScoreBoard
