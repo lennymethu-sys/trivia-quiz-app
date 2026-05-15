@@ -1,9 +1,4 @@
-function AnswerReview(props) {
-  
-  //destructuring the props
-  const isCorrect = props.isCorrect;
-  const correctAnswer = props.correctAnswer;
-  const onNext = props.onNext;
+function AnswerReview({ isCorrect, correctAnswer, onNext }) {
 
   return(
 <div>
@@ -29,6 +24,4 @@ function AnswerReview(props) {
 </div>
   );
 }
-
-
 export default AnswerReview

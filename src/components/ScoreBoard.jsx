@@ -3,13 +3,13 @@ import ProgressBar from './ProgressBar';
 
 function ScoreBoard (props) {
 
-  //destructuring the props
-  const score = props.score;
-  const totalQuestions = props.totalQuestions;
-  const onRestart = props.onRestart;
+  
+  const { score, questions, onRestart } = props;
 
-  //Calculate percentage score without decimals
-  const percentageScore = Math.round((score / totalQuestions) * 100);
+  const totalQuestions = questions.length;;
+
+  //Calculate percentage score without decimals and prevent division by 0
+  const percentageScore = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
 
   return (
     <div>
@@ -25,5 +25,4 @@ function ScoreBoard (props) {
     
   );
 }
-
 export default ScoreBoard

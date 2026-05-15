@@ -1,7 +1,7 @@
 :root {
   --primary-color: #61dafb;
   --secondary-color: #282c34;
-  --background-color: #434e70; /* kept your lighter setup screen bg */
+  --background-color: rgb(174, 219, 211); /* kept your lighter setup screen bg */
   --text-color: white;
   --accent-color: #61dafb;
 
