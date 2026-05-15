@@ -1,20 +1,19 @@
 import { useState } from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
 import SetupScreen from "./components/SetupScreen"
 import QuestionCard from "./components/QuestionCard"
 import ScoreBoard from "./components/ScoreBoard"
-import AnswerReview from "./components/AnswerReview"
 import "./App.css"
 
 function App() {
   const [questions, setQuestions] = useState([])
   const [score, setScore] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [, setGamePhase] = useState("setup")
+  const [gamePhase, setGamePhase] = useState("setup")
 
   function handleAnswer(isCorrect) {
-    if (isCorrect) setScore(score + 1)
-    setCurrentIndex(currentIndex + 1)
+    if (isCorrect) setScore(prev => prev + 1)
+    setCurrentIndex(prev => prev + 1)
   }
 
   function handleRestart() {
@@ -29,7 +28,12 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<SetupScreen setQuestions={setQuestions} setGamePhase={setGamePhase} />}
+          element={
+            <SetupScreen
+              setQuestions={setQuestions}
+              setGamePhase={setGamePhase}
+            />
+          }
         />
         <Route
           path="/quiz"

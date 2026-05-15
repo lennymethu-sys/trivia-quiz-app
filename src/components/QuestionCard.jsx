@@ -43,7 +43,11 @@ function QuestionCard({ questions, currentIndex, onAnswer, score }) {
   return (
     <div className="question-screen">
       <ScoreTracker score={score} total={questions.length} />
-      <TimerDisplay seconds={15} onTimeUp={handleNext} />
+      <TimerDisplay
+        seconds={15}
+        onTimeUp={handleNext}
+        currentIndex={currentIndex}
+      />
       <ProgressBar
         current={currentIndex + 1}
         total={questions.length}
@@ -65,11 +69,22 @@ function QuestionCard({ questions, currentIndex, onAnswer, score }) {
         <button onClick={handleSubmit}>Check Answer</button>
       )}
       {submitted && (
-        <button onClick={handleNext}>
-          {currentIndex + 1 < questions.length
-            ? "Next Question"
-            : "See Results"}
-        </button>
+        <div>
+          <p style={{ 
+            color: selected === current.correct_answer ? "green" : "red",
+            fontSize: "18px",
+            margin: "10px 0"
+          }}>
+            {selected === current.correct_answer 
+              ? "✅ Correct!" 
+              : `❌ Wrong! Correct answer: ${current.correct_answer}`}
+          </p>
+          <button onClick={handleNext}>
+            {currentIndex + 1 < questions.length
+              ? "Next Question"
+              : "See Results"}
+          </button>
+        </div>
       )}
     </div>
   )
